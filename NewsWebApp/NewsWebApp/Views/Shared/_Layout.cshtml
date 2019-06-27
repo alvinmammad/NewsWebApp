@@ -1,0 +1,414 @@
+﻿@using NewsWebApp.Models
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from bdevs.net/znews/znews/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jun 2019 13:15:36 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Znews 3 - HTML Magazine Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.html">
+
+    <!-- All css files are included here. -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="~/css/core.css">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="~/css/shortcode/shortcodes.css">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <!-- User style -->
+    <link rel="stylesheet" href="~/css/custom.css">
+
+    <!-- Style customizer (Remove these lines please) -->
+    <link rel="stylesheet" href="~/css/style-customizer.css">
+    <link href="#" data-style="styles" rel="stylesheet">
+
+    <!-- Modernizr JS -->
+    <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!--  THEME PRELOADER AREA -->
+    <div id="preloader-wrapper">
+        <div class="preloader-wave-effect"></div>
+    </div>
+    <!-- THEME PRELOADER AREA END -->
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+        <!-- Start of header area -->
+        <header class="header-area header-wrapper bg-white clearfix">
+            <!-- Start Sidebar Menu -->
+            <div class="sidebar-menu">
+                <div class="sidebar-menu-inner"></div>
+                <span class="fa fa-remove"></span>
+            </div>
+            <!-- End Sidebar Menu -->
+            <div class="header-top-bar bg-dark ptb-10">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="header-top-right clierfix text-right">
+                                <div class="header-social-bookmark topbar-sblock">
+                                    <ul>
+                                        @foreach (var setting in (List<Settings>)ViewBag.Settings)
+                                        {
+                                            <li><a href="@setting.Facebook"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="@setting.Instagram"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="@setting.Github"><i class="fab fa-github"></i></a></li>
+                                        }
+
+                                    </ul>
+                                </div>
+                                <div class="zmaga-calendar topbar-sblock">
+                                    <span class="calendar uppercase">@DateTime.Now.DayOfWeek @DateTime.Now.ToString("dd"), @DateTime.Now.Year </span>
+                                </div>
+                                <div class="user-accoint topbar-sblock">
+                                    <span class="login-btn uppercase">Login</span>
+                                    <div class="login-form-wrap bg-white">
+                                        <form class="zm-signin-form text-left">
+                                            <input type="text" class="zm-form-control username" placeholder="Username or Email">
+                                            <input type="password" class="zm-form-control password" placeholder="Password">
+                                            <input type="checkbox" value=" Remember Me" class="remember"> &nbsp;Remember Me<br>
+                                            <div class="zm-submit-box clearfix  mt-20">
+                                                <input type="submit" value="Login">
+                                                <a href="registration.html">Register</a>
+                                            </div>
+                                            <a href="#" class="zm-forget">Forget username/password?</a>
+                                            <div class="zm-login-social-box">
+                                                <a href="#" class="social-btn bg-facebook block"><span class="btn_text"><i class="fa fa-facebook"></i>Login with Facebook</span></a>
+                                                <a href="#" class="social-btn bg-twitter block"><span class="btn_text"><i class="fa fa-twitter"></i>Login with Twitter</span></a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-middle-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12 header-mdh">
+                            <div class="global-table">
+                                <div class="global-row">
+                                    <div class="global-cell">
+                                        <div class="logo">
+                                            <a href="index.html">
+                                                <h1>NEWS<span style="color:#f0442c;">STORE</span></h1>
+                                            </a>
+                                            <p class="site-desc">Xəbərsiz qalmayın</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="header-bottom-area hidden-sm hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="menu-wrapper  bg-theme clearfix">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <button class="sidebar-menu-btn">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                        <div class="mainmenu-area">
+                                            <nav class="primary-menu uppercase">
+                                                <ul class="clearfix">
+                                                    @foreach (var category in (List<Category>)ViewBag.Categories)
+                                                    {
+                                                        var subcategories = (List<SubCategory>)ViewBag.SubCategories;
+                                                        var dropdown = subcategories.Where(s => s.CategoryId == category.Id).FirstOrDefault();
+                                                        if (dropdown != null)
+                                                        {
+                                                            <li class="drop">
+                                                                <a href="#">@category.Name</a>
+                                                                <ul class="dropdown level2" role="tablist">
+                                                                    @foreach (var subcategory in subcategories)
+                                                                    {
+                                                                        if (subcategory.CategoryId == category.Id)
+                                                                        {
+                                                                            <li>
+                                                                                <a href="#allnews">@subcategory.Name</a>
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li><a href="index-3.html">@category.Name</a></li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="search-wrap pull-right">
+                                            <div class="search-btn"><i class="fa fa-search"></i></div>
+                                            <div class="search-form">
+                                                <form action="#">
+                                                    <input type="search" placeholder="Search">
+                                                    <button type="submit"><i class='fa fa-search'></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile-menu-area start -->
+            <div class="mobile-menu-area hidden-md hidden-lg">
+                <div class="fluid-container">
+                    <div class="mobile-menu clearfix">
+                        <div class="search-wrap mobile-search">
+                            <div class="mobile-search-btn"><i class="fa fa-search"></i></div>
+                            <div class="mobile-search-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Search">
+                                    <button type="submit"><i class='fa fa-search'></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <nav id="mobile_dropdown">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                    <ul>
+                                        <li>
+                                            <a href="index-3.html">Newspaper</a>
+                                            <ul>
+                                                <li><a href="index.html">Newspaper 1</a></li>
+                                                <li><a href="index-3.html">Newspaper 2</a></li>
+                                                <li><a href="index-7.html">Newspaper 3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="index-2.html">Magazine</a>
+                                            <ul class="dropdown level2">
+                                                <li><a href="index-2.html">Magazine 1</a></li>
+                                                <li><a href="index-7.html">Magazine 2</a></li>
+                                                <li><a href="index-10.html">Magazine 3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="index-4.html">Blogs</a>
+                                            <ul class="dropdown level2">
+                                                <li><a href="index-5.html">Blog demo 1</a></li>
+                                                <li><a href="index-6.html">Blog demo 2</a></li>
+                                                <li><a href="index-8.html">Blog demo 3</a></li>
+                                                <li><a href="index-9.html">Blog demo 4</a></li>
+                                                <li><a href="index-11.html">Blog demo 5</a></li>
+                                                <li><a href="index-12.html">Blog demo 6</a></li>
+                                                <li><a href="index-13.html">Blog demo 7</a></li>
+                                                <li><a href="index-14.html">Blog demo 8</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="index-15.html">Travel</a></li>
+                                        <li><a href="index-16.html">Lifestyle</a></li>
+                                        <li><a href="index-17.html">Sports</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Blog</a>
+                                    <ul>
+                                        <li><a href="blog-single-image.html">Single Blog image 1</a></li>
+                                        <li><a href="blog-single-image-2.html">Single Blog image 2</a></li>
+                                        <li><a href="blog-single-video.html">Single Blog Video 1</a></li>
+                                        <li><a href="blog-single-video-2.html">Single Blog Video 2</a></li>
+                                        <li><a href="blog-single-audio.html">Single Blog Audio 1</a></li>
+                                        <li><a href="blog-single-audio-2.html">Single Blog Audio 2</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pages</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Blog</a>
+                                            <ul>
+                                                <li><a href="blog-single-image.html">Single Blog image 1</a></li>
+                                                <li><a href="blog-single-image-2.html">Single Blog image 2</a></li>
+                                                <li><a href="blog-single-video.html">Single Blog Video 1</a></li>
+                                                <li><a href="blog-single-video-2.html">Single Blog Video 2</a></li>
+                                                <li><a href="blog-single-audio.html">Single Blog Audio 1</a></li>
+                                                <li><a href="blog-single-audio-2.html">Single Blog Audio 2</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li><a href="archive.html">Archive 1</a></li>
+                                        <li><a href="archive-2.html">Archive 2</a></li>
+                                        <li><a href="contact.html">Contact 1</a></li>
+                                        <li><a href="contact-2.html">Contact 2</a></li>
+                                        <li><a href="registration.html">Registration</a></li>
+                                        <li><a href="404.html">Page Not found (404)</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="shop.html">Shop</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-details.html">Shop Details</a></li>
+                                        <li><a href="cart.html">Cart page</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile-menu-area end -->
+            <div class="breakingnews-wrapper hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                            <div class="breakingnews clearfix fix">
+                                <div class="bn-title">
+                                    <h6 class="uppercase">BREAKING NEWS</h6>
+                                </div>
+                                <div class="news-wrap">
+                                    <ul class="bkn clearfix" id="bkn">
+                                        @foreach (var latestNews in (List<News>)ViewBag.LatestNews)
+                                        {
+                                        <li>@latestNews.ShortDesc</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End of header area -->
+        @RenderBody()
+        <!-- Start footer area -->
+        <footer id="footer" class="footer-wrapper footer-1">
+            <!-- Start footer top area -->
+            <div class="footer-top-wrap ptb-70 bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 hidden-sm">
+                            <div class="zm-widget pr-40">
+                                <h2 class="h6 zm-widget-title uppercase text-white mb-30">About Znews</h2>
+                                <div class="zm-widget-content">
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat, non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>Sed ut perspiciatis unde omnis iste, voluptatem dolore mque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-2">
+                            <div class="zm-widget">
+                                <h2 class="h6 zm-widget-title uppercase text-white mb-30">Social Links</h2>
+                                <div class="zm-widget-content">
+                                    <div class="zm-social-media zm-social-1">
+                                        <ul>
+                                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i>Like us on Facebook</a></li>
+                                            <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i>Tweet us on Twitter</a></li>
+                                            <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i>Pin us on Pinterest</a></li>
+                                            <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i>Heart us on Instagram</a></li>
+                                            <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i>Share us on GooglePlus</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3">
+                            <div class="zm-widget pr-50 pl-20">
+                                <h2 class="h6 zm-widget-title uppercase text-white mb-30">Popular Categories</h2>
+                                <div class="zm-widget-content">
+                                    <div class="zm-category-widget zm-category-1">
+                                        <ul>
+                                            <li><a href="#">Business<span>22</span></a></li>
+                                            <li><a href="#">Fashion<span>18</span></a></li>
+                                            <li><a href="#">Sports<span>09</span></a></li>
+                                            <li><a href="#">Technology<span>35</span></a></li>
+                                            <li><a href="#">Entertainment<span>7</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3">
+                            <div class="zm-widget">
+                                <h2 class="h6 zm-widget-title uppercase text-white mb-30">Subscribe Newsletter</h2>
+                                <!-- Start Subscribe From -->
+                                <div class="zm-widget-content">
+                                    <div class="subscribe-form subscribe-footer">
+                                        <p>Join 80,000+ awesome subscribers and update yourself with our exclusive news.</p>
+                                        <form action="#">
+                                            <input type="text" placeholder="Enter your full name">
+                                            <input type="email" placeholder="Enter email address" required="">
+                                            <input type="submit" value="Subscribe">
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- End Subscribe From -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End footer top area -->
+            <div class="footer-buttom bg-black ptb-15">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                            <div class="zm-copyright">
+                                <p class="uppercase">&copy; 2016 Your Company. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 text-right hidden-xs">
+                            <nav class="footer-menu zm-secondary-menu text-right">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Feature</a></li>
+                                    <li><a href="#">Shortcodes</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer area -->
+    </div>
+    <!-- Body main wrapper end -->
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <!-- jquery latest version -->
+    <script src="~/js/vendor/jquery-1.12.1.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>
