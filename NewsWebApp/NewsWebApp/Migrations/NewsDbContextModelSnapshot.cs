@@ -105,6 +105,8 @@ namespace NewsWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedDate");
+
                     b.Property<int>("NewsId");
 
                     b.Property<string>("Text");

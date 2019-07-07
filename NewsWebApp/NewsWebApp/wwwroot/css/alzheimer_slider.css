@@ -1,0 +1,28 @@
+.slide-item{
+    width: 100%;
+    display: none;
+}
+.slide-item.active{
+    display:block;
+}
+.slider-main-wrapper{
+    position: relative;
+}
+.slider-buttons{
+    width:13px;
+    height: 13px;
+    display: inline-block;
+    border:1px solid #fff;
+    border-radius: 100%;
+    margin:0px 2.5px;
+    cursor: pointer;
+}
+.slider-buttons.active{
+    background: #fff;
+}
+.slider-button-wrapper{
+    position: absolute;
+    top:80%;
+    left:50%;
+    transform: translateX(-50%);
+}

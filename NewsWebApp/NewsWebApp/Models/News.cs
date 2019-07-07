@@ -17,7 +17,8 @@ namespace NewsWebApp.Models
         public DateTime CreatedDate { get; set; }
         public DateTime? EditedDate { get; set; }
         public bool Status { get; set; }
-
-        public  List<NewsReview> Comments { get; set; }
+        public List<NewsReview> Comments { get; set; }
+        public List<NewsTag> Tags { get; set; }
+        public  List<NewsPhoto> Photos { get; set; }
     }
 }

@@ -23,10 +23,6 @@ namespace NewsWebApp.Controllers
         {
             await LayoutInitializer.FillCategories(db, ViewBag);
 
-            //News specific_news = await db.News.Where(n => n.Id == 1).Include(n=>n.Comments).FirstOrDefaultAsync();
-            //List<NewsReview> reviews = specific_news.Comments;
-
-
             List<News> popular_news = await db.News
                                                 .OrderByDescending(n => n.ViewCount)
                                                         .Take(10)

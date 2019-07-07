@@ -32,6 +32,8 @@
     <!-- Style customizer (Remove these lines please) -->
     <link rel="stylesheet" href="~/css/style-customizer.css">
     <link href="#" data-style="styles" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
 
     <!-- Modernizr JS -->
     <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -293,7 +295,7 @@
                                     <ul class="bkn clearfix" id="bkn">
                                         @foreach (var latestNews in (List<News>)ViewBag.LatestNews)
                                         {
-                                        <li>@latestNews.ShortDesc</li>
+                                            <li>@latestNews.ShortDesc</li>
                                         }
                                     </ul>
                                 </div>
@@ -409,6 +411,27 @@
     <script src="~/js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="~/js/main.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

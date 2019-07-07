@@ -8,7 +8,7 @@
                 {
                     <!-- Start single trend post -->
                     <div class="col-2">
-                        <article  class="zm-trending-post zm-lay-a zm-single-post" data-dark-overlay="2.5" data-scrim-bottom="9" data-effict-zoom="3">
+                        <article class="zm-trending-post zm-lay-a zm-single-post" data-dark-overlay="2.5" data-scrim-bottom="9" data-effict-zoom="3">
                             <div class="zm-post-thumb">
                                 @{
                                     var photo = Model.NewsPhotos.Where(np => np.NewsId == trendingNews.Id).FirstOrDefault();
@@ -17,7 +17,7 @@
                             </div>
                             <div class="zm-post-dis text-white">
                                 <div class="zm-category"><a href="#" style="color:@trendingNews.SubCategory.Category.Color" class="bg-cat-3 cat-btn">@trendingNews.SubCategory.Category.Name</a></div>
-                                <h2 class="zm-post-title"><a href="blog-single-image.html" style="font-size:19px;">@(trendingNews.ShortDesc.Length>40? trendingNews.ShortDesc.Substring(0,40)+"...": trendingNews.ShortDesc)</a></h2>
+                                <h2 class="zm-post-title"><a href="blog-single-image.html" style="font-size:19px;">@(trendingNews.ShortDesc.Length > 40 ? trendingNews.ShortDesc.Substring(0, 40) + "..." : trendingNews.ShortDesc)</a></h2>
                                 <div class="zm-post-meta">
                                     <ul>
                                         <li class="s-meta"><a href="#" class="zm-date">@trendingNews.CreatedDate.ToShortDateString()</a></li>
@@ -41,7 +41,7 @@
             <div class="row mb-40">
                 <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                     <div class="section-title">
-                        <h2 class="h6 header-color inline-block uppercase">Popular News</h2>
+                        <h2 class="h6 header-color inline-block uppercase"><a href="@Url.Action("Index","News",new{take = true,key = "ViewCount",sinif="News"})">Popular News</a></h2>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                             <div class="zm-posts">
                                 <article class="zm-post-lay-a">
                                     <div class="zm-post-thumb">
-                                        <a href="/News/Index/@popularNews.Id"><img src="~/Uploads/News/@(photo!=null?photo.Photo:"")" alt="img"></a>
+                                        <a href="@Url.Action("Index","News",new { Id= popularNews.Id,key = "ViewCount",take=false })"><img src="~/Uploads/News/@(photo!=null?photo.Photo:"")" alt="img"></a>
                                     </div>
                                     <div class="zm-post-dis">
                                         <div class="zm-post-header">
@@ -152,20 +152,23 @@
                                         <div class="zm-post-dis f-right">
                                             <div class="zm-post-header">
                                                 <div class="zm-category"><a href="#" class="bg-cat-1 cat-btn">@latestNews.SubCategory.Category.Name</a></div>
-                                                <h2 class="zm-post-title"><a href="blog-single-image.html">@latestNews.ShortDesc
-                                                     </a></h2>
-                                                <div class="zm-post-meta">
-                                                    <ul>
-                                                        <li class="s-meta"><a href="#" class="zm-date">@latestNews.CreatedDate.ToShortDateString()</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="zm-post-content">
-                                                    <p>@latestNews.Text.Substring(0,100) ... </p>
-                                                </div>
+                                                <h2 class="zm-post-title">
+                                                    <a href="blog-single-image.html">
+                                                        @latestNews.ShortDesc
+                                                </a>
+                                            </h2>
+                                            <div class="zm-post-meta">
+                                                <ul>
+                                                    <li class="s-meta"><a href="#" class="zm-date">@latestNews.CreatedDate.ToShortDateString()</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="zm-post-content">
+                                                <p>@latestNews.Text.Substring(0, 100) ... </p>
                                             </div>
                                         </div>
-                                    </article>
-                                }
+                                    </div>
+                                </article>
+                            }
                             </div>
                         </div>
                     </div>

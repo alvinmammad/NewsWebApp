@@ -12,5 +12,6 @@ namespace NewsWebApp.Models
         public int NewsId { get; set; }
         public string Text { get; set; }
         public int UserId { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

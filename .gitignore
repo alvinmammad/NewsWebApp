@@ -70,6 +70,12 @@ artifacts/
 *.svclog
 *.scc
 
+appsettings.Development.json
+
+Migrations/
+
+
+
 # Chutzpah Test files
 _Chutzpah*
 
