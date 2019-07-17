@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NewsWebApp.Core;
+using NewsWebApp.Data;
 
 namespace NewsWebApp
 {
@@ -14,7 +17,15 @@ namespace NewsWebApp
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+           IWebHost webHost =  CreateWebHostBuilder(args).Build();
+            using (IServiceScope scope = webHost.Services.CreateScope())
+            {
+                using(NewsDbContext db = scope.ServiceProvider.GetRequiredService<NewsDbContext>())
+                {
+                    Seed.InvokeAsync(scope, db).Wait();
+                }
+            }
+            webHost.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

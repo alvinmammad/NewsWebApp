@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NewsWebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewsWebApp.Data
 {
-    public class NewsDbContext:DbContext
+    public class NewsDbContext:IdentityDbContext<User>
     {
         public NewsDbContext(DbContextOptions<NewsDbContext> option) : base(option) { }
         

@@ -77,23 +77,31 @@
                                     <span class="calendar uppercase">@DateTime.Now.DayOfWeek @DateTime.Now.ToString("dd"), @DateTime.Now.Year </span>
                                 </div>
                                 <div class="user-accoint topbar-sblock">
-                                    <span class="login-btn uppercase">Login</span>
-                                    <div class="login-form-wrap bg-white">
-                                        <form class="zm-signin-form text-left">
-                                            <input type="text" class="zm-form-control username" placeholder="Username or Email">
-                                            <input type="password" class="zm-form-control password" placeholder="Password">
-                                            <input type="checkbox" value=" Remember Me" class="remember"> &nbsp;Remember Me<br>
-                                            <div class="zm-submit-box clearfix  mt-20">
-                                                <input type="submit" value="Login">
-                                                <a href="registration.html">Register</a>
-                                            </div>
-                                            <a href="#" class="zm-forget">Forget username/password?</a>
-                                            <div class="zm-login-social-box">
-                                                <a href="#" class="social-btn bg-facebook block"><span class="btn_text"><i class="fa fa-facebook"></i>Login with Facebook</span></a>
-                                                <a href="#" class="social-btn bg-twitter block"><span class="btn_text"><i class="fa fa-twitter"></i>Login with Twitter</span></a>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    @if (Context.User.Identity.IsAuthenticated)
+                                    {
+                                        <span class="login-btn uppercase">@Context.User.Identity.Name</span>
+                                        <a asp-action="SignOut" asp-controller="Account">Sign out</a>
+                                    }
+                                    else
+                                    {
+                                        <span class="login-btn uppercase">Login</span>
+                                        <div class="login-form-wrap bg-white">
+                                            <form asp-action="Login" asp-controller="Account" method="post" class="zm-signin-form text-left">
+                                                <input type="text" name="UsernameEmail" class="zm-form-control username" placeholder="Username or Email">
+                                                <input type="password" name="Password" class="zm-form-control password" placeholder="Password">
+                                                <input type="checkbox" name="IsPresistent" value=" Remember Me" class="remember"> &nbsp;Remember Me<br>
+                                                <div class="zm-submit-box clearfix  mt-20">
+                                                    <input type="submit" value="Login">
+                                                    <a asp-action="Register" asp-controller="Account">Register</a>
+                                                </div>
+                                                <a href="#" class="zm-forget">Forget username/password?</a>
+                                                <div class="zm-login-social-box">
+                                                    <a href="#" class="social-btn bg-facebook block"><span class="btn_text"><i class="fa fa-facebook"></i>Login with Facebook</span></a>
+                                                    <a href="#" class="social-btn bg-twitter block"><span class="btn_text"><i class="fa fa-twitter"></i>Login with Twitter</span></a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
