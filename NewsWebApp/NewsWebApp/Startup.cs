@@ -27,7 +27,7 @@ namespace NewsWebApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-           
+
 
             services.AddMvc();
 
@@ -37,9 +37,18 @@ namespace NewsWebApp
             });
 
 
+
             services.AddIdentity<User, IdentityRole>()
                                         .AddDefaultTokenProviders()
                                             .AddEntityFrameworkStores<NewsDbContext>();
+
+
+            services.ConfigureApplicationCookie(option =>
+            {
+                option.LoginPath = "/Admin/Account/Login";
+            });
+
+
             services.AddAuthentication();
 
 
@@ -60,7 +69,21 @@ namespace NewsWebApp
 
             app.UseAuthentication();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+
+
+            app.UseMvc(route =>
+            {
+
+                route.MapRoute(
+                    name: "Admin",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                  );
+
+                route.MapRoute(
+                    name: "Default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    );
+            });
 
 
         }

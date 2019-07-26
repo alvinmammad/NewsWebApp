@@ -1,0 +1,124 @@
+@media screen and (max-width:1072px){
+    .navLeft-items{
+        padding:10px 15px!important;
+    }
+    .navRight-items{
+        padding:10px 15px!important;
+    }
+}
+@media screen and (max-width:983px){
+    .navLeft-items span{
+       display: none;       
+    }
+    .navLeft-items i{
+        font-size:1em!important;      
+     }
+    .navRight-items span{
+        font-size:12px;
+    }
+    .navLeft-items:hover i{
+       color:rgba(255, 255, 255, 0.85);
+    }
+    .material-icons{
+        padding-top:7px!important;
+    }
+    .createDown{    
+        display: none;
+    }
+    .fa-caret-down{
+        display: none;
+    }
+    .navRight-items i{
+        font-size: 12px;
+    }
+    .navRight-items{
+        padding:10px 10px;
+    }
+}
+@media screen and (max-width:845px){
+#sideBar{
+    width: 100%!important;
+    height: 100%;
+    position: fixed;
+    z-index:999;
+    top:50px;
+}
+#mainContainer{
+    padding-left:0px!important;
+    width: 100%!important;
+}
+.navTop{
+    width: 100%!important;
+    left:0!important;
+}
+#sideBar.hide{
+    width:100%!important;
+    left:-100%;
+    transition:left 0.4s ease-in-out!important;
+}
+.logo{
+    display: none!important;
+}
+.name{
+    display: none!important;
+}
+}
+@media screen and (max-width:580px){
+/* Badges page */
+ #example .demo-elements .demo-text{
+     font-size:11px;
+ }
+ #example .row{
+     padding: 30px 0px!important;
+ }
+ #bottom table td:last-child span{
+     font-size:10px;
+ }
+ /* Labels page */
+ #example table th{
+     font-size:10px!important;
+ }
+ #example table td{
+    font-size:10px!important;
+}
+#example table span{
+    font-size:9px;
+}
+#example .modalPage .btn{
+    display: block!important;
+}
+#example .mainButtons a{
+    width: 120px!important;
+}
+.formExample .form-horizontal .row{
+    padding:0!important;
+}
+}
+@media screen and (max-width: 992px){
+#calendar .row{
+    margin-right: 0px!important;
+}
+.paddingMap{
+    padding:10px!important;
+    margin:0!important;
+}
+#vmap{
+    height: 200px!important;
+}
+#country{
+    padding-top:10px!important;
+}
+#country .countryName{
+    font-size: 17px;
+}
+.countryPercent{
+    font-size: 1em!important;
+}
+}
+
+@media screen and (max-width: 392px){
+    #vmap{
+        height: 150px!important;
+    }
+  
+    }

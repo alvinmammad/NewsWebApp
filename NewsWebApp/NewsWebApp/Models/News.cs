@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,5 +22,10 @@ namespace NewsWebApp.Models
         public List<NewsReview> Comments { get; set; }
         public List<NewsTag> Tags { get; set; }
         public  List<NewsPhoto> Photos { get; set; }
+
+        [NotMapped]
+        public IFormFile Photo { get; set; }
+        [NotMapped]
+        public List<string> PhotoNames { get; set; }
     }
 }

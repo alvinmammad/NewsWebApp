@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/admin/css/nav-side.css">
+    <link href="~/admin/plugins/calendar/dcalendar.picker.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/admin/css/media.css">
+    <link rel="stylesheet" href="~/admin/css/style.css">
+
+</head>
+<body>
+    <div class="p-0" id="sideBar">
+        <!-- Side Bar Menu -->
+        <nav>
+            <!-- Logo Span -->
+            <span class="logo">
+                <span>
+                    Wg
+                    <span class="board">Board</span>
+                </span>
+            </span>
+            <!-- Search input -->
+            <section id="search">
+                <form action="">
+                    <div class="input-group mt-2 searchInput p-0">
+                        <input type="text" class="form-control" placeholder="Search..">
+                        <div class="input-group-btn searchButton p-0">
+                            <!-- Search Button -->
+                            <button class="btn btn-default searchButton">
+                                <i class="fas fa-search searchIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <!-- Side Menu List -->
+
+            <ul class="mainList mt-1">
+                <!-- DashBoard -->
+                <li class="list-items dropList">
+                    <span class="nav-span"><a style="color:white;" href="@Url.Action("Index","News")">News</a></span>
+                    <i class="far fa-arrow-alt-circle-down downIcon"></i>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+    <!-- End Side Menu -->
+    <!-- Main Container -->
+    <main id="mainContainer" class="show">
+        <div class="container-fluid">
+            <!-- <div class="row"> -->
+            <!-- Header -->
+            <header class="navTop show">
+                <div class="row">
+                    <!-- Navigation Left -->
+                    <div class="col-md-6  col-sm-6 col-6 navLeft">
+                        <ul class="d-flex m-0">
+                            <li>
+                                <div class="icon">
+                                    <span class="hamburger p-0"></span>
+                                </div>
+                            </li>
+                            <li class="d-flex navLeft-items">
+                                <i class="material-icons createIcons">
+                                    insert_drive_file
+                                </i>
+                                <span>Create</span>
+                                <i class="material-icons createIcons createDown">
+                                    arrow_drop_down
+                                </i>
+                            </li>
+                            <li class="dropDown">
+                                <ul>
+                                    <li class="drop-items">
+                                        <a href="#">
+                                            Publication
+                                        </a>
+                                    </li>
+                                    <li class="drop-items">
+                                        <a href="#">
+                                            Project
+                                        </a>
+                                    </li>
+                                    <li class="drop-items">
+                                        <a href="#">
+                                            Task Item
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="navLeft-items">
+                                <i class="material-icons">
+                                    cloud_queue
+                                </i>
+                                <span>File explorer</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Right Nav -->
+                    <div class="col-md-6 col-sm-6 col-6  d-flex justify-content-end navRight">
+                        <ul class="d-flex m-0">
+                            <li class="navRight-items">
+                                <i class="far fa-bell"></i>
+                                <span class="badge badge-danger">3</span>
+                            </li>
+                            <li class="dropDown dropdownBell">
+                                <ul>
+                                    <li>
+                                        <span>Nofictions</span>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img src="images/notifiction1.jpg" alt="">
+                                            </div>
+                                            <div class="col-9 p-0">
+                                                <span>
+                                                    <b>Phillip Sandoval</b> liked your post
+                                                </span>
+                                                <span class="circle"></span>
+                                                <p>2 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img src="images/notifiction3.jpg" alt="">
+                                            </div>
+                                            <div class="col-9 p-0">
+                                                <span>
+                                                    <b>Debra Burton</b> commented on your post
+                                                </span>
+                                                <span class="circle"></span>
+                                                <p>2 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img src="images/notifiction4.jpg" alt="">
+                                            </div>
+                                            <div class="col-9 p-0">
+                                                <span>
+                                                    <b>Nathan Nelson</b> followed you
+                                                </span>
+                                                <span class="circle"></span>
+                                                <p>2 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="navRight-items">
+                                <span>EN</span>
+                                <i class="fas fa-caret-down"></i>
+                            </li>
+                            <li class="dropDown">
+                                <ul>
+                                    <li>
+                                        <span>
+                                           
+                                        </span>
+                                        <span class="circle"></span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="navRight-items">
+                                <span class="name"> <b> @Context.User.Identity.Name</b></span>
+                                <i class="fas fa-caret-down"></i>
+                                <img src="images/profile.jpg" alt="">
+                            </li>
+                            <li class="dropDown dropDownImg">
+                                <ul>
+                                    <li class="drop-items">
+                                        <i class="far fa-user"></i>
+                                        <a href="#">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li class="drop-items">
+                                        <i class="fas fa-tasks"></i>
+                                        <a href="#">
+                                            Deutsch
+                                        </a>
+                                    </li>
+                                    <li class="drop-items">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <a href="@Url.Action("SignOut", "Account")">Sign Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <!-- / Header -->
+            @RenderBody()
+        </div>
+    </main>
+    <div class="clearfix "></div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+    <script src="~/admin/plugins/calendar/dcalendar.picker.js"></script>
+    <script src="~/admin/js/main.js" defer="defer"></script>
+    <script src="~/admin/js/mymain.js"></script>
+    <script>
+        $('#calendar-demo').dcalendar();
+    </script>
+</body>
+
+</html>

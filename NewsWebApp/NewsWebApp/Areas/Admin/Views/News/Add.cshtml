@@ -1,0 +1,45 @@
+﻿@model List<Category>
+
+<div style="margin-top:100px;" class="container-fluid">
+    <div class="col-10 mx-auto">
+        <form asp-action="Add" asp-controller="News" enctype="multipart/form-data" method="post">
+
+            <div class="form-group">
+                <label>Short Desc</label>
+                <input class="form-control" type="text" name="ShortDesc" value="" />
+            </div>
+            <div class="form-group">
+                <label>Text</label>
+                <textarea rows="10" class="form-control" name="Text"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Categories</label>
+                <select class="form-control" id="categories">
+                  @foreach (var category in Model)
+                  {
+                      <option value="@category.Id">@category.Name</option>
+                  }
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="subcategory_error_message"></span>
+                <label>Subcatgories</label>
+                <select class="form-control" id="subcategories" name="SubCategoryId">
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Photos</label>
+                <input class="form-control" multiple type="file" id="Photo" name="Photo" value="" />
+            </div>
+            <select name="PhotoNames" multiple style="display:none;">
+           
+            </select>
+            <div class="form-group">
+                <ul class="d-flex photos">
+                </ul>
+            </div>
+            <button class="btn btn-success" type="submit">Add news</button>
+        </form>
+    </div>
+</div>

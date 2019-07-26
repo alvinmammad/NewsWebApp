@@ -1,0 +1,25 @@
+﻿@model List<News>
+<table class="mt-5 table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>News Name</th>
+            <th>News Photo</th>
+            <th>News Created Date</th>
+            <th>Edit / Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var news in Model)
+        {
+            <tr>
+                <td>@news.ShortDesc</td>
+                <td><img style="width:150px;height:150px;" src="~/Uploads/News/@(news.Photos.FirstOrDefault()!=null?news.Photos.FirstOrDefault().Photo:"")" alt="Alternate Text" /></td>
+                <td>@news.CreatedDate</td>
+                <td><a href="@Url.Action("Edit","News",new { id= news.Id })">Edit</a> / <a  href="@Url.Action("Delete","News",new { id= news.Id })">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="@Url.Action("Add","News")">Add</a>
